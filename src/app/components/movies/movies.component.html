@@ -1,8 +1,8 @@
 <div class="app">
   <h1>List of movies</h1>
   <div class="search">
-    <input type="text" placeholder="Search Movies">
-    <img src="../../../assets/search.svg" alt="search" />
+    <input type="text" #search placeholder="Search Movies">
+    <img (click)="getMovies(search.value)" src="../../../assets/search.svg" alt="search" />
   </div>
   <div class="container">
     <app-card-movie></app-card-movie>
