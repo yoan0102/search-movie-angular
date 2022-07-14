@@ -1,12 +1,20 @@
 <div class="movie">
   <div>
-    <p>2020</p>
+    <p>{{movie.Year}}</p>
   </div>
   <div>
-    <img src="https://via.placeholder.com/400" alt="img">
+    <!-- <img *ngIf="movie" src="https://via.placeholder.com/400" alt="img"> -->
+    <img  src="{{getImagen()}}" [alt]="movie.Title">
   </div>
   <div>
-    <span>Movie Type</span>
-    <h3>Title Movie</h3>
+    <span>{{ movie.Type }}</span>
+    <h3>{{ movie.Title }}</h3>
   </div>
 </div>
+
+
+<!-- Poster: "https://m.media-amazon.com/images/M/MV5BYThjYzcyYzItNTVjNy00NDk0LTgwMWQtYjMwNmNlNWJhMzMyXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"
+Title: "Batman v Superman: Dawn of Justice"
+Type: "movie"
+Year: "2016"
+imdbID -->
