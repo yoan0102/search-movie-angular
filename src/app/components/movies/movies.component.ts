@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Movie } from 'src/app/interface/movies';
 import { MovieService } from 'src/app/services/movie.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { MovieService } from 'src/app/services/movie.service';
 })
 export class MoviesComponent implements OnInit {
 
-  movies: any[] = []
+  movies: Movie[] = []
   constructor(private moviesService:MovieService) { }
 
   ngOnInit(): void {
@@ -16,7 +17,12 @@ export class MoviesComponent implements OnInit {
 
   getMovies(searchTerm:string){
     this.moviesService.getmovies(searchTerm).subscribe(data => {
-      this.movies= data.Search
+      if(data === 'false'){
+        this.movies = []
+        return
+      }
+
+      this.movies= data
     })
   }
 
