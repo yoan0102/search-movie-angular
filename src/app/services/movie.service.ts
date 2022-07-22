@@ -8,14 +8,13 @@ import { Movie, SearchApi } from '../interface/movies';
 })
 export class MovieService {
   // key d281ed8b
-  baseUrl: string
-
+  private baseUrl: string;
 
   constructor(private http:HttpClient) {
     this.baseUrl = 'http://www.omdbapi.com/?apikey=d281ed8b'
   }
 
-  getmovies(searchTerm: string):Observable<any> {
+  getmovies(searchTerm: string):Observable<Movie[]> {
     return this.http.get<SearchApi>(`${this.baseUrl}&s=${searchTerm}`).pipe(
       map(resp => resp.Search)
     )

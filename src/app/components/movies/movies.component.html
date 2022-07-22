@@ -1,8 +1,8 @@
 <div class="app">
   <h1>List of movies</h1>
   <div class="search">
-    <input type="text" #search placeholder="Search Movies">
-    <img (click)="getMovies(search.value)" src="../../../assets/search.svg" alt="search" />
+    <input type="text" (keyup)="getMovies($event)"  #search placeholder="Search Movies">
+<!--    <img (click)="getMovies(search.value)" src="../../../assets/search.svg" alt="search" />-->
   </div>
   <div *ngIf="movies.length > 0; else empty" class="container">
     <app-card-movie *ngFor="let movie of movies" [movie]="movie" ></app-card-movie>

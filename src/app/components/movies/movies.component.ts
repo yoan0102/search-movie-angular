@@ -15,14 +15,10 @@ export class MoviesComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  getMovies(searchTerm:string){
+  getMovies(event: any){
+   const searchTerm = (event.target as HTMLInputElement).value;
     this.moviesService.getmovies(searchTerm).subscribe(data => {
-      if(data === 'false'){
-        this.movies = []
-        return
-      }
-
-      this.movies= data
+      this.movies= data !== undefined ? data : [];
     })
   }
 
